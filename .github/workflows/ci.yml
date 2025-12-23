@@ -7,6 +7,7 @@ name: CI
 jobs:
   test:
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: stage4_API
@@ -23,8 +24,9 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          pip install -r requirements.txt
           pip install pytest
 
       - name: Run tests
-        run: pytest -q
+        run: pytest tests -q
+
